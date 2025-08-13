@@ -28,4 +28,30 @@ export default defineConfig({
       ],
     },
   },
+  moduleFederation: {
+    options: {
+      name: "marketing",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./header": "./src/scenes/Header/index.ts",
+        "./footer": "./src/scenes/Footer/index.ts",
+      },
+      shared: {
+        react: {
+          requiredVersion: "^18.2.0",
+          singleton: true,
+          eager: true,
+        },
+        "react-dom": {
+          requiredVersion: "^18.2.0",
+          singleton: true,
+          eager: true,
+        },
+        "react-router-dom": {
+          requiredVersion: "^6.23.1",
+          singleton: true,
+        },
+      },
+    },
+  }
 });

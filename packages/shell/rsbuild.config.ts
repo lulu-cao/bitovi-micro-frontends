@@ -19,4 +19,29 @@ export default defineConfig({
     ],
   },
   plugins: [pluginReact()],
+  moduleFederation: {
+    options: {
+      name: "shell-application",
+      remotes: {
+        marketing: "marketing@http://localhost:3004/remoteEntry.js",
+        catalog: "catalog@http://localhost:3001/remoteEntry.js",
+      },
+      shared: {
+        react: {
+          requiredVersion: "^18.2.0",
+          singleton: true,
+          eager: true,
+        },
+        "react-dom": {
+          requiredVersion: "^18.2.0",
+          singleton: true,
+          eager: true,
+        },
+        "react-router-dom": {
+          requiredVersion: "^6.23.1",
+          singleton: true,
+        },
+      },
+    }
+  },
 });

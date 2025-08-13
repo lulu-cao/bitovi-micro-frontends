@@ -4,13 +4,14 @@ import { Container, Divider } from "@mantine/core";
 
 import Categories from "./components/Categories";
 import Filters from "./components/Filters";
+import type { Catalog } from "shared-types";
 
 /// Leave separate - these are temporary
 import { MantineProvider } from "@mantine/core";
 import { emotionTransform, MantineEmotionProvider } from "@mantine/emotion";
 ///
 
-const Filter: FC = () => {
+const Filter: Catalog.Filter = () => {
   return (
     <TempWrapper>
       <Container fluid px="md" w="350" py="lg">

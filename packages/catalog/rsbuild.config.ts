@@ -34,4 +34,30 @@ export default defineConfig({
     },
   },
   plugins: [pluginReact()],
+  moduleFederation: {
+    options: {
+      name: "catalog",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./CatalogList": "./src/scenes/CatalogList/index.ts",
+        "./Filter": "./src/scenes/Filter/index.ts",
+      },
+      shared: {
+        react: {
+          requiredVersion: "^18.2.0",
+          singleton: true,
+          eager: true,
+        },
+        "react-dom": {
+          requiredVersion: "^18.2.0",
+          singleton: true,
+          eager: true,
+        },
+        "react-router-dom": {
+          requiredVersion: "^6.23.1",
+          singleton: true,
+        },
+      },
+    },
+  }
 });

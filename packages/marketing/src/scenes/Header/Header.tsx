@@ -6,13 +6,14 @@ import HomeLink from "./components/HomeLink";
 import Search from "./components/Search";
 import Links from "./components/Links";
 import Shortcuts from "./components/Shortcuts";
+import { Marketing } from "shared-types";
 
 /// Leave separate - these are temporary
 import { MantineProvider } from "@mantine/core";
 import { emotionTransform, MantineEmotionProvider } from "@mantine/emotion";
 ///
 
-const Header: FC = () => {
+const Header: Marketing.Header = () => {
   return (
     <TempWrapper>
       <Flex

@@ -7,13 +7,14 @@ import CompanyLinks from "./components/CompanyLinks";
 import BitoviLinks from "./components/BitoviLinks";
 import Company from "./components/Company";
 import Socials from "./components/Socials";
+import { Marketing } from "shared-types";
 
 /// Leave separate - these are temporary
 import { MantineProvider } from "@mantine/core";
 import { emotionTransform, MantineEmotionProvider } from "@mantine/emotion";
 ///
 
-const Footer: FC = () => {
+const Footer: Marketing.Footer = () => {
   return (
     <TempWrapper>
       <Flex

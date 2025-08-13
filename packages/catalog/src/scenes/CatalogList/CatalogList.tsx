@@ -6,6 +6,7 @@ import SkeletonCatalogList from "./components/SkeletonCatalogList";
 import CatalogListItem from "./components/CatalogListItem";
 import CatalogListError from "./components/CatalogListError";
 import { useCatalogList } from "./hooks/useCatalogList";
+import type { Catalog } from "shared-types";
 
 /// Leave separate - these are temporary
 import { MantineProvider } from "@mantine/core";
@@ -13,7 +14,7 @@ import { emotionTransform, MantineEmotionProvider } from "@mantine/emotion";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 ///
 
-const CatalogList: FC = () => {
+const CatalogList: Catalog.CatalogList = () => {
   const { isError, isLoading, catalogList } = useCatalogList();
 
   if (isLoading) {
