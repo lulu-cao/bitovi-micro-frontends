@@ -31,4 +31,41 @@ export default defineConfig({
     },
   },
   plugins: [pluginReact()],
+  moduleFederation: {
+    options: {
+      name: "order",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./cart": "./src/scenes/Cart/index.ts",
+      },
+      shared: {
+        react: {
+          requiredVersion: "^18.2.0",
+          singleton: true,
+          eager: true,
+        },
+        "react-dom": {
+          requiredVersion: "^18.2.0",
+          singleton: true,
+          eager: true,
+        },
+        "react-router-dom": {
+          requiredVersion: "^6.23.1",
+          singleton: true,
+        },
+        "@mantine/core": {
+          requiredVersion: "^7.10.2",
+          singleton: true,
+        },
+        "@mantine/emotion": {
+          requiredVersion: "^7.10.2",
+          singleton: true,
+        },
+        "@tanstack/react-query": {
+          requiredVersion: "^5.48.0",
+          singleton: true,
+        },
+      },
+    },
+  },
 });

@@ -1,5 +1,4 @@
-import type { FC } from "react";
-
+import type { Order } from "shared-types";
 import { Button, Flex, HoverCard, Text } from "@mantine/core";
 import { IconShoppingCart } from "@tabler/icons-react";
 
@@ -9,7 +8,7 @@ import CartSummary from "@components/CartSummary";
 import { useCart } from "./hook/useCart";
 import { Link } from "react-router-dom";
 
-const Cart: FC = () => {
+const Cart: Order.Cart = () => {
   const cart = useCart();
   const cartHasItems = cart.products.length !== 0;
 
