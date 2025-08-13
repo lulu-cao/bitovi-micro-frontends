@@ -9,6 +9,8 @@ import * as Sentry from "@sentry/react";
 import Layout from "./components/Layout";
 
 import Shop from "./scenes/Shop";
+import About from "./scenes/About";
+import CatalogItem from "catalog/item";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,10 @@ const App = () => {
                 <Route path="/" element={<Navigate to="/shop" />} />
                 <Route path="/shop" element={<Layout />}>
                   <Route index element={<Shop />} />
+                  <Route path="item/:productId" element={<CatalogItem />} />
+                </Route>
+                <Route path="/about" element={<Layout />}>
+                  <Route index element={<About />} />
                 </Route>
               </Routes>
             </BrowserRouter>

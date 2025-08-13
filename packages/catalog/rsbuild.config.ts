@@ -11,6 +11,7 @@ export default defineConfig({
         "./list": "./src/scenes/CatalogList/index.ts",
         "./filter": "./src/scenes/Filter/index.ts",
         "./search": "./src/scenes/Search/index.ts",
+        "./item": "./src/scenes/CatalogItem/index.ts",
       },
       shared: {
         react: {

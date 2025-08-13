@@ -1,5 +1,3 @@
-import type { FC } from "react";
-
 import {
   Container,
   Grid,
@@ -9,10 +7,11 @@ import {
   Breadcrumbs,
   Anchor,
 } from "@mantine/core";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 import { fetchProduct } from "@services/product";
+import { Catalog } from "shared-types";
 
 import Images from "./components/Images";
 import Details from "./components/Details";
@@ -20,8 +19,8 @@ import Related from "./components/Related";
 import CatalogItemSkeleton from "./components/CatalogItemSkeleton";
 import CatalogItemError from "./components/CatalogItemError";
 
-const CatalogItem: FC = () => {
-  const productId = "1";
+const CatalogItem: Catalog.CatalogItem = () => {
+  const { productId } = useParams();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["product", productId],

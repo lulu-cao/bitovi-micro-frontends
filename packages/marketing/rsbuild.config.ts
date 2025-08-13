@@ -10,6 +10,7 @@ export default defineConfig({
       exposes: {
         "./header": "./src/scenes/Header/index.ts",
         "./footer": "./src/scenes/Footer/index.ts",
+        "./about": "./src/scenes/About/index.ts",
       },
       remotes: {
         catalog: "catalog@http://localhost:3001/remoteEntry.js",
