@@ -1,5 +1,5 @@
 import type { FC } from "react";
-
+import { ErrorBoundary } from "react-error-boundary";
 import { lazy, Suspense } from "react";
 import { Grid } from "@mantine/core";
 
@@ -10,14 +10,18 @@ const Shop: FC = () => {
   return (
     <Grid>
       <Grid.Col span={{ sm: 12, md: 3 }}>
-        <Suspense>
-          <Filter />
-        </Suspense>
+        <ErrorBoundary fallback={<div>Filter went wrong</div>}>
+          <Suspense>
+            <Filter />
+          </Suspense>
+        </ErrorBoundary>
       </Grid.Col>
       <Grid.Col span={{ sm: 12, md: 9 }}>
-        <Suspense>
-          <CatalogList />
-        </Suspense>
+        <ErrorBoundary fallback={<div>CatalogList went wrong</div>}>
+          <Suspense>
+            <CatalogList />
+          </Suspense>
+        </ErrorBoundary>
       </Grid.Col>
     </Grid>
   );
