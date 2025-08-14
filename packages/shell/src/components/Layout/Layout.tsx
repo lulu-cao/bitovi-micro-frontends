@@ -1,6 +1,7 @@
 import { FC, Suspense, lazy } from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { Container, Flex } from "@mantine/core";
+import { readLocalStorageValue } from "@mantine/hooks";
 import { ErrorBoundary } from "react-error-boundary";
 
 import HeaderSkeleton from "./components/HeaderSkeleton";
@@ -11,6 +12,12 @@ const Header = lazy(() => import("marketing/header"));
 const Footer = lazy(() => import("marketing/footer"));
 
 const Layout: FC = () => {
+  const isLoggedIn = readLocalStorageValue<boolean>({ key: "logged-in" });
+
+  if (!isLoggedIn) {
+    return <Navigate to="/login" />
+  }
+
   return (
     <Flex sx={{ flex: 1 }} direction="column" justify="space-between">
       <ErrorBoundary fallback={<SiteError mfe="header" />}>

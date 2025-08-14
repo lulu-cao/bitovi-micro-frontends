@@ -1,5 +1,6 @@
 import type { Profile } from "shared-types";
-
+import { useLocalStorage } from "@mantine/hooks";
+import { useNavigate } from "react-router-dom";
 import { createStyles } from "@mantine/emotion";
 import {
   Button,
@@ -15,8 +16,18 @@ import {
 
 import backgroundImage from "../../../assets/pexels-gustavo-fring-6050428.jpg";
 
-const Login: Profile.Login = ({ onLoginSuccess }) => {
+const Login: Profile.Login = () => {
   const { classes } = useStyles();
+  const [, setIsLoggedIn] = useLocalStorage({
+    key: "logged-in",
+    defaultValue: false,
+  });
+
+  const navigate = useNavigate();
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true);
+    navigate("/shop")
+  };
 
   return (
     <Container className={classes.loginPage}>
@@ -36,7 +47,7 @@ const Login: Profile.Login = ({ onLoginSuccess }) => {
           component="form"
           onSubmit={(e) => {
             e.preventDefault();
-            onLoginSuccess?.();
+            handleLoginSuccess();
           }}
         >
           <Stack>

@@ -13,6 +13,7 @@ import About from "./scenes/About";
 import Contact from "./scenes/Contact";
 import Account from "./scenes/Account";
 import Item from "./scenes/Item";
+import LoginScene from "./scenes/Login";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => {
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Navigate to="/shop" />} />
+                <Route path="/login" element={<LoginScene />} />
                 <Route path="/shop" element={<Layout />}>
                   <Route index element={<Shop />} />
                   <Route path="item/:productId" element={<Item />} />

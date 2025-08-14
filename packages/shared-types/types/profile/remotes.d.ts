@@ -9,7 +9,5 @@ declare module "profile/account" {
 declare module "profile/login" {
   import type { FC } from "react";
 
-  export default function Login(props: {
-    onLoginSuccess?: () => void;
-  }): ReturnType<FC>;
+  export default function Login(): ReturnType<FC>;
 }
